@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Aniq Sunesara">
+    <meta name="description" content="Customizable chess!">
+    <meta name="keywords" content="chess, flex chess, chess board">
+
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/script.js" defer></script>
+    <link rel="icon" href="images/white-bishop.png">
+    <title>
+        Flex Chess
+    </title>
+</head>
+
+<body onload="resetVariables(); makeClassicGame(); setupGameScoreboard(); displayTurn();">
+    <header>
+        <a href="index.html">
+            <h1 id="title">Flex Chess</h1>
+        </a>
+        <a href="build-a-piece.html">
+            <h4 id="title">Build A Piece</h4>
+        </a>
+    </header>
+
+    <div id="general-info">
+        <p>Flex Chess is a website made to customize your chess experience. Change the number of rows and columns on
+            the board, place pieces wher you want them, and have fun!</p>
+    </div>
+
+    <div id="input-section">
+        <button
+            onclick="resetVariables(); makeClassicGame(); setupGameScoreboard(); displayTurn(); toggleRowsColumnsSection();">Classic</button>
+
+        <button
+            onclick="resetVariables(); isCustomizing = true; setRows(); setColumns(); makeBoard(); clearGameScoreboard(); pieceSelectorSetup(); toggleRowsColumnsSection();">Custom</button>
+        <br>
+        <div id="rows-columns-section">
+            <br>
+            <label for="row-input"><input id="row-input" type="number" value="8" min="5" max="50"> Number of
+                Rows</label>
+            <br>
+
+            <label for="column-input"><input id="column-input" type="number" value="8" min="5" max="50"> Number of
+                Columns</label>
+        </div>
+    </div>
+
+    <br>
+    <div id="chess-board">
+        <div id="game-scoreboard-container"></div>
+        <div id="piece-selector-container"></div>
+        <div id="black-side-container" class="pawn-selector-container"></div>
+        <div id="mega-container" class="mega-container">
+            <div id="container" class="container"></div>
+        </div>
+        <div id="white-side-container" class="pawn-selector-container"></div>
+    </div>
+
+    <br><br><br>
+
+    <footer>
+        <div class="footer-info">
+            <p>Developed by Aniq Sunesara and Sameet Tejani</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

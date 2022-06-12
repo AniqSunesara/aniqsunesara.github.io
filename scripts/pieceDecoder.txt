@@ -1,0 +1,44 @@
+PIECE CODE DECODER
+
+name = name of piece
+
+| = field separator
+
+b = black
+w = white
+
+points = number of points that the piece is worth
+
+s = standard
+u = unique
+
+if(standard){
+    1st = up 
+    2nd = up & right
+    3rd = right
+    4th = down & right
+    5th = down
+    6th = down & left
+    7th = left
+    8th = up & left
+
+    numbers = two digit number of spaces the piece can move in that direction
+    @@ = infinite
+
+    # = jumping
+    ? = not jumping
+
+    EX:
+    queen|b|9|s|@@?|@@?|@@?|@@?|@@?|@@?|@@?|@@?
+
+    bishop|w|3|s|00?|@@?|00?|@@?|00?|@@?|00?|@@?
+
+    bigpawn|b|2|s|00?|00?|00?|00?|02#|00?|00?|00?
+}
+
+if(unique){
+    spot = Y difference + _ + X difference
+
+    Y difference = how many spaces up(negetive) of down(positive) from the piece
+    X difference = how many spaces left(negetive) of right(positive) from the piece
+}

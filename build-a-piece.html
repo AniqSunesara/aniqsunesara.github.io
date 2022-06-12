@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Aniq Sunesara">
+    <meta name="description" content="Customizable chess!">
+    <meta name="keywords" content="chess, flex chess, chess board">
+
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/buildAPieceScript.js" defer></script>
+    <link rel="icon" href="images/white-bishop.png">
+    <title>
+        Build A Piece
+    </title>
+</head>
+
+<body onload="setupBuildAPiece();">
+    <header>
+        <a href="index.html">
+            <h1 id="title">Flex Chess</h1>
+        </a>
+        <a href="build-a-piece.html">
+            <h4 id="title">Build A Piece</h4>
+        </a>
+    </header>
+
+    <div id="general-info">
+        <h2>Build A Piece</h2>
+        <p>Build your own chess piece! Define some rules about how your piece moves, copy the generated code, and use the code to import your piece into your chess games!</p>
+        <br>
+        <button onclick="generateCode(); showSpots();">Generate Code</button> 
+        <div id="code">
+            <span id="generated-code"></span>
+        </div>
+    </div>
+
+    <br>
+    <div id="chess-board">
+        <div id="wrapper-container">
+            <div id="container-b" class="container"></div>
+            <div id="input-menu">
+                <h3>Standard or Unique Movement</h3>
+                <button id="standard-input" onclick="hideSpots(); toggleMovement('s')">Standard</button>
+                <button id="unique-input" onclick="hideSpots(); toggleMovement('u')">Unique</button>
+                <h3>Name</h3>
+                <label for="name-input">Name of your piece <input id="name-input" type="text" maxlength="16"></label>
+
+                <h3>Color</h3>
+                <button id="black-color-input" onclick="toggleColor('b');">Black</button>
+                <button id="white-color-input" onclick="toggleColor('w');">White</button>
+
+                <h3>Points</h3>
+                <label for="points-input">Number of points this piece is worth <input id="points-input" type="number" value="1" min="1" max="999999" style="width: 50px;"></label>
+
+                <div id="standard-movement-input">
+                    <div id="up" class="standard-input-box">
+                        <h3>Up</h3>
+                        <label for="up-infinite-input"> <input id="up-infinite-input" type="checkbox"> Infinitely</label>
+                        <br>
+                        <label for="up-input">Number of spaces up <input id="up-input" type="number" value="0" min="0" max="71" min="0" max="71" style="width: 50px;"></label>
+                        <br>
+                        <label for="up-jumping-input"> <input id="up-jumping-input" type="checkbox"> Jumping (Can "jump" over other pieces)</label>
+                    </div>
+    
+                    <div id="up-right" class="standard-input-box">
+                        <h3>Up & Right</h3>
+                        <label for="upright-infinite-input"> <input id="upright-infinite-input" type="checkbox"> Infinitely</label>
+                        <br>
+                        <label for="upright-input">Number of spaces up and right <input id="upright-input" type="number" value="0" min="0" max="71" style="width: 50px;"></label>
+                        <br>
+                        <label for="upright-jumping-input"> <input id="upright-jumping-input" type="checkbox"> Jumping (Can "jump" over other pieces)</label>    
+                    </div>
+    
+                    <div id="right" class="standard-input-box">
+                        <h3>Right</h3>
+                        <label for="right-infinite-input"> <input id="right-infinite-input" type="checkbox"> Infinitely</label>
+                        <br>
+                        <label for="right-input">Number of spaces right <input id="right-input" type="number" value="0" min="0" max="71" style="width: 50px;"></label>
+                        <br>
+                        <label for="right-jumping-input"> <input id="right-jumping-input" type="checkbox"> Jumping (Can "jump" over other pieces)</label>
+                    </div>
+    
+                    <div id="down-right" class="standard-input-box">
+                        <h3>Down & Right</h3>
+                        <label for="downright-infinite-input"> <input id="downright-infinite-input" type="checkbox"> Infinitely</label>
+                        <br>
+                        <label for="downright-input">Number of spaces down and right <input id="downright-input" type="number" value="0" min="0" max="71" style="width: 50px;"></label>
+                        <br>
+                        <label for="downright-jumping-input"> <input id="downright-jumping-input" type="checkbox"> Jumping (Can "jump" over other pieces)</label>    
+                    </div>
+    
+                    <div id="down" class="standard-input-box">
+                        <h3>Down</h3>
+                        <label for="down-infinite-input"> <input id="down-infinite-input" type="checkbox"> Infinitely</label>
+                        <br>
+                        <label for="down-input">Number of spaces down <input id="down-input" type="number" value="0" min="0" max="71" style="width: 50px;"></label>
+                        <br>
+                        <label for="down-jumping-input"> <input id="down-jumping-input" type="checkbox"> Jumping (Can "jump" over other pieces)</label>
+                    </div>
+
+                    <div id="down-left" class="standard-input-box">
+                        <h3>Down & Left</h3>
+                        <label for="downleft-infinite-input"> <input id="downleft-infinite-input" type="checkbox"> Infinitely</label>
+                        <br>
+                        <label for="downleft-input">Number of spaces down and left <input id="downleft-input" type="number" value="0" min="0" max="71" style="width: 50px;"></label>
+                        <br>
+                        <label for="downleft-jumping-input"> <input id="downleft-jumping-input" type="checkbox"> Jumping (Can "jump" over other pieces)</label>
+                    </div>
+    
+                    <div id="left" class="standard-input-box">
+                        <h3>Left</h3>
+                        <label for="left-infinite-input"> <input id="left-infinite-input" type="checkbox"> Infinitely</label>
+                        <br>
+                        <label for="left-input">Number of spaces left <input id="left-input" type="number" value="0" min="0" max="71" style="width: 50px;"></label>
+                        <br>
+                        <label for="left-jumping-input"> <input id="left-jumping-input" type="checkbox"> Jumping (Can "jump" over other pieces)</label>    
+                    </div>
+    
+                    <div id="up-left" class="standard-input-box">
+                        <h3>Up & Left</h3>
+                        <label for="upleft-infinite-input"> <input id="upleft-infinite-input" type="checkbox"> Infinitely</label>
+                        <br>
+                        <label for="upleft-input">Number of spaces up and left <input id="upleft-input" type="number" value="0" min="0" max="71" style="width: 50px;"></label>
+                        <br>
+                        <label for="upleft-jumping-input"> <input id="upleft-jumping-input" type="checkbox"> Jumping (Can "jump" over other pieces)</label>    
+                    </div>
+                </div>
+                <div id="unique-movement-input">
+                    <p>Click on the board where you want your piece to move</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br>
+
+    <footer>
+        <div class="footer-info">
+            <p>Developed by Aniq Sunesara and Sameet Tejani</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+
+
+
+body{
+    background-color: #2D2424;
+    color: #ffeed9;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+
+h3{
+    margin-bottom: 5px;
+}
+
+a{
+    text-decoration: none;
+}
+
+#title{
+    color:#ffeed9;
+}
+
+button{
+    background-color: #ffeed9;
+    color: black;
+}
+
+input{
+    background-color: #ffeed9;
+    color:black;
+}
+
+.container{
+    display: grid;
+    font-family: monospace;
+    color: #b8b8b8;
+}
+
+.pawn-selector-container{
+    display: grid;
+    font-family: monospace;
+    color: #b8b8b8;
+    background-color: #5C3D2E;
+}
+
+.light-space{
+    background-color: #D7A86E
+}
+
+.dark-space{
+    background-color: #865439;
+}
+
+.check{
+    background-color: red;
+}
+
+.piece{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+
+.dot{
+    opacity: 50%;
+    position: relative;
+    width: 70px;
+    height: 70px;
+    z-index: 2;
+}
+
+#display-winner{
+    background-color: black;
+    color: #fffbf5;
+}
+
+#display-turn{
+    background-color: black;
+    color: #fffbf5;
+}
+
+.piece-selector-container{
+    display: grid;
+    font-family: monospace;
+    color: #b8b8b8;
+    background-color: #5C3D2E;
+}
+
+.selector-piece{
+    z-index: 1;
+    width: 70px;
+    height: 70px;
+    position:absolute;
+}
+
+.selected-icon{
+    position: relative;
+    z-index: 2;
+}
+
+.pawn-selector-piece{
+    z-index: 1;
+    width: 70px;
+    height: 70px;
+}
+
+.footer-info{
+    font-size: small;
+}
+
+.mega-container{
+    display: flex;
+    justify-content:space-between;
+    align-content: flex-start;
+}
+
+
+#wrapper-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    align-content: flex-start;
+}
+
+#input-menu{
+    height:630px;
+    width: 600px;
+    border:1px solid #4e4e4e;
+    overflow:auto;
+}
+
+#generated-code{
+    font-size: larger;
+}
+
+#standard-input{
+    color: red;
+}
+
+#unique-movement-input{
+    display: none;
+}
+
+#code-input{
+    width: 250px;
+}
+
+#rows-columns-section{
+    display: none;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
