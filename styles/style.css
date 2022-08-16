@@ -1,6 +1,4 @@
 
-
-
 body{
     background-color: #2D2424;
     color: #ffeed9;
@@ -17,6 +15,11 @@ h3{
 }
 
 a{
+    text-decoration: none;
+}
+
+#link{
+    color:#ffeed9;
     text-decoration: none;
 }
 
@@ -111,6 +114,12 @@ input{
 
 .footer-info{
     font-size: small;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-start;
 }
 
 .mega-container{
