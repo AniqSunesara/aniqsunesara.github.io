@@ -648,7 +648,6 @@ function verifyCode(code) {
     }
 
     if (typeof p != "number" || isNaN(p)) {
-        console.log(p + "  " + typeof p);
         window.alert("Invalid piece code");
         return false;
     }
@@ -2898,7 +2897,7 @@ function checkDangerZones() {
             whiteOneInCheck = true;
         }
     }
-    kingAlive = (aliveKings > 0) ? true : false;
+    kingAlive = (aliveKings > 0);
     if (!kingAlive || ((totalWhite == aliveKings) && whiteKingDots == 0 && whiteOneInCheck) || ((totalWhite != aliveKings) && whiteKingDots == 0 && whiteOneInCheck && whiteMoveableSpaces.length <= 8)) {
         blackWon = true;
     }
@@ -2907,19 +2906,19 @@ function checkDangerZones() {
     }
 
 
-    if (stalemate) {
-        endGame("stalemate", true);
+
+
+    if (whiteWon && blackWon) {
+        endGame("tie", true);
     }
-    else {
-        if (whiteWon && blackWon) {
-            endGame("tie", true);
-        }
-        else if (whiteWon && !blackWon) {
-            endGame("white", true);
-        }
-        else if (!whiteWon && blackWon) {
-            endGame("black", true);
-        }
+    else if (whiteWon && !blackWon) {
+        endGame("white", true);
+    }
+    else if (!whiteWon && blackWon) {
+        endGame("black", true);
+    }
+    else if (stalemate) {
+        endGame("stalemate", true);
     }
 }
 
